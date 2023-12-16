@@ -92,7 +92,7 @@ export class PlaygroundComponent implements OnInit, OnDestroy{
     const ref = this.dialogService.open(PlaygoundEditComponent, {
       header: (!this.canAdd) ? 'View User' : data ? 'Edit User' : 'New User',
       width: '60%',
-      height: '70%',
+      height: '100%',
       data: cloneObj,
       baseZIndex: 1000
     });
