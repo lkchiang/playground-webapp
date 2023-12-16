@@ -1,0 +1,14 @@
+
+::ng-deep {
+    .p-inputtext {
+        width: 100%;
+    }
+    .p-chips {
+        width: 100%;
+    }
+    .p-dialog .p-dialog-content {
+        height: 100%;
+        overflow-y: unset !important;
+        padding: 0 1.5rem 0rem 1.5rem;
+    }
+  }

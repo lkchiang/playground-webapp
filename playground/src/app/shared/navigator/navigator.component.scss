@@ -1,0 +1,11 @@
+:host ::ng-deep {
+  .navbar-menu {
+    background-color: #F9FFF7;
+  }
+
+  .navbar-menu p-menubarsub {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

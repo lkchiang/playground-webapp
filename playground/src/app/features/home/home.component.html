@@ -1,0 +1,10 @@
+<p-card header="" [style]="{ 'width': '100%' }">
+    <ng-template pTemplate="header">
+        <img alt="Home" src="../../../assets/images/playground-home.png" style="width:100%;height:450px;" />
+    </ng-template>
+    <ng-template pTemplate="content">
+        <p-button label="Login as Admin" icon="pi pi-check" (click)="login('admin')"></p-button>
+        <p-button label="Login as User" icon="pi pi-check" (click)="login('user')" [style]="{ 'margin-left': '.5em' }"></p-button>
+        <p-button label="Unauthorized Login" icon="pi pi-times" (click)="login('Unauthorized')" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+    </ng-template>
+</p-card>

@@ -1,0 +1,39 @@
+<p-table 
+    [value]="users" 
+    dataKey="id"
+    [loading]="loading"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [globalFilterFields]="['username', 'emailAddress']">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:1%"></th>
+            <th style="width:33%" pSortableColumn="username">Username<p-sortIcon field="username"></p-sortIcon></th>
+            <th style="width:33%" pSortableColumn="emailAddress">Email Address<p-sortIcon field="emailAddress"></p-sortIcon></th>
+            <th style="width:33%" pSortableColumn="phoneNumber">Phone Number<p-sortIcon field="phoneNumber"></p-sortIcon></th>
+            <th scope="col" class="fixed-column-header" *ngIf="kebabMenu.length > 0" alignFrozen="right" pFrozenColumn [frozen]="true"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td></td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.emailAddress }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td class="fixed-column" alignFrozen="right" pFrozenColumn [frozen]="true">
+                <button pButton type="icon" class="kebab-icon p-button-rounded p-button-text p-button-plain"
+                    icon="pi pi-ellipsis-v" (click)="menu.toggle($event); false;"></button>
+                <p-menu #menu appendTo="body" [popup]="true" [model]="kebabMenu" (onShow)="onMenuShow(user)">
+                </p-menu>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" label="Refresh Users" icon="pi pi-refresh" styleClass="p-button-text" (click)="refreshUsers()"></p-button>
+        <p-button type="button" label="New User" icon="pi pi-user-plus" styleClass="p-button-text" (click)="addUser()" *ngIf="canAdd"></p-button>
+    </ng-template>
+</p-table>
